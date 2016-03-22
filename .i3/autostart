@@ -1,0 +1,9 @@
+#!/bin/bash
+
+(
+  feh --bg-scale /usr/share/wallpapers/hokusai.jpg &&
+  triplehead
+) &
+
+wifi &
+xcompmgr &
