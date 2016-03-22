@@ -1,0 +1,42 @@
+#! /bin/bash
+
+# list of files/folders to be symlinked
+# symlink will be created from source (in dotfiles repo) to destination (existing file to override)
+# make sure to leave an empty line at the end of the list
+# escape white spaces with \
+# lines format: destination, source
+#   desination - the original file on disk
+#   source - the symlinked file in the dotfiles repo folder structure, relative to the repo's base dir
+
+# example:
+# ~/.bash_profile, /bash/.bash_profile
+# ~/.test, /dir12/.test
+
+# bash
+~/.bash_profile, /bash/.bash_profile
+~/.bashrc, /bash/.bashrc
+~/.inputrc, /bash/.inputrc
+~/.bash_prompt, /bash/.bash_prompt
+~/.bash/aliases, /bash/aliases
+~/.bash/functions, /bash/functions
+~/.bash/variables, /bash/variables
+
+#fonts
+~/.fonts.conf, /fonts/.fonts.conf
+
+# git
+~/.gitconfig, /git/.gitconfig
+~/.gitignore, /git/.gitignore
+~/.git/templates, /git/templates
+
+#i3
+~/.i3, /.i3/autostart
+~/.i3, /.i3/config
+
+# sbt
+~/.sbt/build.sbt, /sbt/0.12/build.sbt
+~/.sbt/plugins/plugins.sbt, /sbt/0.12/plugins.sbt
+~/.sbt/0.13/build.sbt, /sbt/0.13/build.sbt
+~/.sbt/0.13/plugins/plugins.sbt, /sbt/0.13/plugins.sbt
+
+# make sure to keep an empty line at the end:
