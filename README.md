@@ -1,9 +1,9 @@
 # dotfiles
 Heavily inspired by https://github.com/orrsella/dotfiles
 
-## install
-
+## Clone the repo & install:
 ```
+git clone https://github.com/suxxus/.dotfiles.git
 ./install
 
 ```

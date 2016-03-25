@@ -70,6 +70,8 @@ alias gl='git log -n 20 --format="%ai  %Cgreen[%h]%Creset  [%<(12,trunc)%aN]  %s
 #npm
 alias dev='npm run dev'
 alias start='npm run start'
+alias build='npm run build'
+alias test='npm run test'
 
 # vagrant
 alias vi='vagrant init ubuntu/trusty64'
@@ -122,10 +124,6 @@ alias dl="cd ~/Downloads"
 alias dt="cd ~/Desktop"
 alias g="git"
 alias h="history"
-
-#browsers
-alias ff="firefox"
-alias gg="google-chrome" 
 
 # Detect which `ls` flavor is in use
 if ls --color > /dev/null 2>&1; then # GNU `ls`
