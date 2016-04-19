@@ -74,6 +74,8 @@ alias test='npm run test'
 alias dist='npm run dist'
 alias check='npm run check'
 alias update='npm run update'
+alias lint='npm run lint'
+alias story='npm run storybook'
 
 # vagrant
 alias vi='vagrant init ubuntu/trusty64'
