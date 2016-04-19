@@ -18,3 +18,6 @@ fi;
 
 # Autocorrect typos in path names when using `cd`
 shopt -s cdspell;
+
+# added by travis gem
+[ -f /home/diego/.travis/travis.sh ] && source /home/diego/.travis/travis.sh
