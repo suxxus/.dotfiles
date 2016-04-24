@@ -9,7 +9,7 @@ export BASH_DIR=~/.bash
 source $BASH_DIR/aliases
 source $BASH_DIR/functions
 source $BASH_DIR/variables
-source .bash_prompt
+source ~/.bash_prompt
 
 # Add tab completion for many Bash commands
 if [ -f /etc/bash_completion ]; then
