@@ -36,4 +36,9 @@
 #npm
 ~/.npmrc, /.npm/npmrc
 
+#sublime-text-3
+
+
+
 # make sure to keep an empty line at the end:
+~/.config/sublime-text-3, /SublimeText3
