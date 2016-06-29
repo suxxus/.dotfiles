@@ -68,6 +68,7 @@ alias gl='git log -n 20 --format="%ai  %Cgreen[%h]%Creset  [%<(12,trunc)%aN]  %s
 
 #npm
 alias dev='npm run dev'
+alias devc='npm run devc'
 alias start='npm run start'
 alias build='npm run build'
 alias test='npm run test'
@@ -76,6 +77,7 @@ alias check='npm run check'
 alias update='npm run update'
 alias lint='npm run lint'
 alias story='npm run storybook'
+alias brs='npm run browsersync'
 
 # vagrant
 alias vi='vagrant init ubuntu/trusty64'
@@ -113,7 +115,6 @@ alias zincstart='zinc -nailed -port 3030 -start'
 # JVM/sbt/maven
 alias cleantarget="find . -type d -name target -ls -exec rm -r {} +"
 
-
 # Easier navigation: .., ..., ...., ....., ~ and -
 alias ..="cd .."
 alias ...="cd ../.."
@@ -124,6 +125,8 @@ alias -- -="cd -"
 
 # Shortcuts
 alias d="cd ~/Documents"
+alias ds="cd ~/Documents/studies && la -s"
+alias dw="cd ~/Documents/works && la -s"
 alias dl="cd ~/Downloads"
 alias dt="cd ~/Desktop"
 alias g="git"

@@ -21,3 +21,6 @@ shopt -s cdspell;
 
 # added by travis gem
 [ -f /home/diego/.travis/travis.sh ] && source /home/diego/.travis/travis.sh
+
+### Added by the Heroku Toolbelt
+export PATH="/usr/local/heroku/bin:$PATH"
