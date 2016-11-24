@@ -65,6 +65,7 @@ alias gpuh='git push heroku master'
 alias gco='git checkout '
 alias ga='git add -A'
 alias gl='git log -n 20 --format="%ai  %Cgreen[%h]%Creset  [%<(12,trunc)%aN]  %s"'
+alias gpf='git log --graph --pretty=format:"%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset" --abbrev-commit'
 
 #npm
 alias dev='npm run dev'
