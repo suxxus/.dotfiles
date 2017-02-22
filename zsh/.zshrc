@@ -58,9 +58,10 @@ ZSH_THEME="robbyrussell"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(git)
 
+# --- USER CONFIG -----------------
+
 source $ZSH/oh-my-zsh.sh
 
-# User configuration
 # export MANPATH="/usr/local/man:$MANPATH"
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
@@ -86,6 +87,10 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+alias reload=". ~/.zshrc && echo 'ZSH config reloaded from ~/.zshrc'"
+
+# Add private aliases
+source $HOME/.dotfiles/bash/aliases
 
 source  $ZSH/oh-my-zsh.sh
 
