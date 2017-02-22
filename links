@@ -36,6 +36,9 @@
 #npm
 ~/.npmrc, /.npm/npmrc
 
+#zsh
+~/.zshrc, /zsh/.zshrc
+
 #sublime-text-3
 #~/.config/sublime-text-3, /SublimeText3
 
