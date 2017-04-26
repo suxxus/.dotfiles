@@ -60,7 +60,7 @@ plugins=(git zsh-syntax-highlighting)
 
 # --- USER CONFIG -----------------
 
-source $ZSH/oh-my-zsh.sh
+# source $ZSH/oh-my-zsh.sh
 
 # export MANPATH="/usr/local/man:$MANPATH"
 # You may need to manually set your language environment
