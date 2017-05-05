@@ -89,10 +89,10 @@ plugins=(git zsh-syntax-highlighting)
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 # alias reload=". ~/.zshrc && echo 'ZSH config reloaded from ~/.zshrc'"
 
+# Add private variables
+source $HOME/Documents/.dotfiles/bash/variables
+
 # Add private aliases
 source $HOME/Documents/.dotfiles/bash/aliases
 
 source $ZSH/oh-my-zsh.sh
-
-
-
