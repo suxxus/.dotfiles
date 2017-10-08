@@ -39,6 +39,8 @@
 #zsh
 ~/.zshrc, /zsh/.zshrc
 
+#vim 
+~/.vimrc, /vim/.vimrc
 #sublime-text-3
 #~/.config/sublime-text-3, /SublimeText3
 
