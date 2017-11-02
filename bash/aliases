@@ -184,3 +184,9 @@ command -v npm > /dev/null && alias npme="npm --registry http://registry.npmjs.e
 
 # exit
 alias  x="exit"
+
+#only one screen when using laptop
+alias onescreen="xrandr --output eDP-1 --off"
+
+#block screen
+alias block='sudo -v;gnome-screensaver-command --lock;sleep 1;sudo pm-suspend'

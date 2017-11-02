@@ -16,6 +16,8 @@ Plugin 'scrooloose/nerdcommenter'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'ruanyl/vim-fixmyjs'
 Plugin 'djoshea/vim-autoread'
+Plugin 'tpope/vim-repeat'
+Plugin 'svermeulen/vim-easyclip'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
