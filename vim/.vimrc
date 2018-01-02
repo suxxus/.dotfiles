@@ -17,7 +17,9 @@ Plugin 'airblade/vim-gitgutter'
 Plugin 'ruanyl/vim-fixmyjs'
 Plugin 'djoshea/vim-autoread'
 Plugin 'tpope/vim-repeat'
+Plugin 'maxmellon/vim-jsx-pretty'
 Plugin 'svermeulen/vim-easyclip'
+Plugin 'vitalk/vim-lesscss'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -178,6 +180,9 @@ nmap <CR> o<Esc>
 
 " swp files
 set directory^=$HOME/.vim/.tmp//
+
+" autocomplete css 
+autocmd FileType css set omnifunc=csscomplete#CompleteCSS
 
 " ---------------------------------------------------------------------------
 "  borrowed from https://github.com/csswizardry/dotfiles/blob/master/.vimrc
