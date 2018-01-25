@@ -19,7 +19,7 @@ Plugin 'djoshea/vim-autoread'
 Plugin 'tpope/vim-repeat'
 Plugin 'maxmellon/vim-jsx-pretty'
 Plugin 'svermeulen/vim-easyclip'
-Plugin 'vitalk/vim-lesscss'
+Plugin 'othree/csscomplete.vim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -241,3 +241,6 @@ set incsearch
 set ignorecase
 " ...except if we input a capital letter
 set smartcase
+
+" filetype plugin on
+set omnifunc=syntaxcomplete#Complete
