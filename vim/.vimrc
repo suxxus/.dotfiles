@@ -1,28 +1,15 @@
-set nocompatible              " be iMproved, required
+"set nocompatible              " be iMproved, required
 filetype off                  " required
 
 " set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
+" set rtp+=~/.vim/bundle/Vundle.vim
+" call vundle#begin()
 " alternatively, pass a path where Vundle should install plugins
 " call vundle#begin('~/some/path/here')
 
 " let Vundle manage Vundle, required    
-Plugin 'nathanaelkane/vim-indent-guides'
-Plugin 'Valloric/YouCompleteMe'
-Plugin 'pangloss/vim-javascript'
-Plugin 'Raimondi/delimitMate'
-Plugin 'scrooloose/nerdcommenter'
-Plugin 'airblade/vim-gitgutter'
-Plugin 'ruanyl/vim-fixmyjs'
-Plugin 'djoshea/vim-autoread'
-Plugin 'tpope/vim-repeat'
-Plugin 'maxmellon/vim-jsx-pretty'
-Plugin 'svermeulen/vim-easyclip'
-Plugin 'othree/csscomplete.vim'
-
 " All of your Plugins must be added before the following line
-call vundle#end()            " required
+" call vundle#end()            " required
 filetype plugin indent on    " required
 
 set autoindent
@@ -170,7 +157,7 @@ set timeout timeoutlen=1500
 " YouComplete
 let g:ycm_server_keep_logfiles = 1
 let g:ycm_server_log_level = 'debug' 
-
+"
 " insert new line without entering insert mode
 nmap <S-Enter> O<Esc>
 nmap <CR> o<Esc>
@@ -230,6 +217,11 @@ autocmd FileType gitcommit set colorcolumn+=51
 " Highlight current line
 set cursorline
 
+" don't offer to open certain files/directories
+set wildignore+=*.bmp,*.gif,*.ico,*.jpg,*.png,*.ico
+set wildignore+=*.pdf,*.psd
+set wildignore+=node_modules/*,bower_components/*
+set wildignore+=**/__snapshots__/*
 
 " Search
 
@@ -244,3 +236,21 @@ set smartcase
 
 " filetype plugin on
 set omnifunc=syntaxcomplete#Complete
+
+call pathogen#helptags()
+
+autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS 
+
+let g:user_emmet_install_global = 0
+let g:user_emmet_leader_key='<Tab>'
+let g:user_emmet_settings = {
+     \  'javascript.jsx' : {
+     \    'extends' : 'jsx',
+     \    },
+     \  }
+
+
+"enable keyboard shortcuts
+"let g:tern_map_keys=1
+""show argument hints
+let g:tern_show_argument_hints='on_hold'
