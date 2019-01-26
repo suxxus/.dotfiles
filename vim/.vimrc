@@ -250,7 +250,21 @@ let g:user_emmet_settings = {
      \  }
 
 
+" CTRLp
+" ==============================
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
+set wildignore+=*\\tmp\\*,*.swp,*.zip,*.exe  " Windows
+
+let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
+let g:ctrlp_custom_ignore = {
+                   \ 'dir':  '\v[\/]\.(git|hg|svn)$',
+                   \ 'file': '\v\.(exe|so|dll)$',
+                   \ 'link': 'some_bad_symbolic_links',
+                   \ }
+
 "enable keyboard shortcuts
-"let g:tern_map_keys=1
-""show argument hints
+let g:tern_map_keys=1
+"show argument hints
 let g:tern_show_argument_hints='on_hold'
+" path of current file
+set statusline+=%F
