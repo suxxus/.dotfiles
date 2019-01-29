@@ -5,8 +5,6 @@
 # filesystem, navigation, terminal
 alias back='cd -'                               # go back one folder
 alias path='echo $PATH | tr ":" "\n" | sort'    # print $path nicely
-alias ll='ls -l --time-style=+"%Y-%m-%d %H:%M:%S" --color -h -a'
-alias cdd='ccd'                                 # in case you confuse ccd and cdd
 alias mkdir='mkdir -p'                          # creat dirs recursively
 alias ln='ln -v'                                # make ln verbose
 alias clr='clear;echo "Currently logged in on $(tty), as $(whoami) in directory $(pwd)."'
@@ -196,3 +194,8 @@ alias screenr0="xrandr -s 1920x1080"
 alias screenr1="xrandr -s 1280x1024"
 alias screenr2="xrandr -s 1360x768"
 alias screenr3="xrandr -s 1024x768"
+
+#enable disable touchpad
+alias enable-touchpad='xinput set-prop `xinput list | grep -i touchpad | cut -f2 | grep -oE '[[:digit:]]+'` "Device Enabled" 1'
+
+alias disable-touchpad='xinput set-prop `xinput list | grep -i touchpad | cut -f2 | grep -oE '[[:digit:]]+'` "Device Enabled" 0'
