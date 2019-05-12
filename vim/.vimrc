@@ -226,7 +226,7 @@ set wildignore+=**/__snapshots__/*
 " Search
 
 " Don’t keep results highlighted after searching...
-" set nohlsearch
+"set nohlsearch
 " ...just highlight as we type
 set incsearch
 " Ignore case when searching...
@@ -250,14 +250,23 @@ let g:user_emmet_settings = {
      \  }
 
 
+"-- FOLDING --
+set foldmethod=syntax "syntax highlighting items specify folds
+set foldcolumn=1 "defines 1 col at window left, to indicate folding
+let javaScript_fold=1 "activate folding by JS syntax
+set foldlevelstart=99 "start file with all folds opened
+
+
 " CTRLp
 " ==============================
+" Ignore some folders and files for CtrlP indexing
+"
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
 set wildignore+=*\\tmp\\*,*.swp,*.zip,*.exe  " Windows
 
 let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
 let g:ctrlp_custom_ignore = {
-                   \ 'dir':  '\v[\/]\.(git|hg|svn)$',
+                   \ 'dir':  '\v[\/]\.(git|hg|svn)\|node_modules$',
                    \ 'file': '\v\.(exe|so|dll)$',
                    \ 'link': 'some_bad_symbolic_links',
                    \ }
@@ -268,3 +277,8 @@ let g:tern_map_keys=1
 let g:tern_show_argument_hints='on_hold'
 " path of current file
 set statusline+=%F
+
+" buffer jump
+map gn: bn<cr>
+map gp: bp<cr>
+map gd: bd<cr>
