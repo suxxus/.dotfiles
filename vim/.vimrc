@@ -1,202 +1,35 @@
-"set nocompatible              " be iMproved, required
-filetype off                  " required
-
-" set the runtime path to include Vundle and initialize
-" set rtp+=~/.vim/bundle/Vundle.vim
-" call vundle#begin()
-" alternatively, pass a path where Vundle should install plugins
-" call vundle#begin('~/some/path/here')
-
-" let Vundle manage Vundle, required    
-" All of your Plugins must be added before the following line
-" call vundle#end()            " required
-filetype plugin indent on    " required
-
-set autoindent
-set ts=4
-filetype on
-
 syntax on
-set ignorecase
-set smartcase
-set hlsearch
-set modelines=0
-set wildmenu
-set wildmode=longest:full
-set nu "line numbers
 
-"for indenting
-set expandtab
+set noerrorbells
+set tabstop=4 softtabstop=4
 set shiftwidth=4
-set tabstop=4
-set smarttab
-vmap <Tab> >gv
-vmap <S-Tab> <gv
-inoremap <S-Tab> <C-D>
-
-set lbr "word wrap
-set tw=500
-
-set wrap "Wrap lines
-
-" scrolling
-inoremap <C-E> <C-X><C-E> "scrolling on insert
-inoremap <C-Y> <C-X><C-Y>
-set scrolloff=3 " keep three lines between the cursor and the edge of the screen
-
-" With a map leader it's possible to do extra key combinations
-" like <leader>w saves the current file
-let mapleader = " " " Leader is the space key
-let g:mapleader = " "
-"auto indent for brackets
-inoremap {V5<CR> {<CR>}y7<Esc>O
-" easier write
-nmap <leader>w :w!<cr>
-" easier quit
-nmap <leader>q :q<cr>
-" silence search highlighting
-nnoremap <leader>sh :nohlsearch<Bar>:echo<CR>
-"paste from outside buffer
-nnoremap <leader>p :set paste<CR>"+p:set nopaste<CR>
-vnoremap <leader>p <Esc>:set paste<CR>gv"+p:set nopaste<CR>
-"copy to outside buffer
-vnoremap <leader>y "+y
-"select all
-nnoremap <leader>a ggVG
-"paste from 0 register
-"Useful because `d` overwrites the <quote> register
-nnoremap <leader>P "0p
-vnoremap <leader>P "0p
-
-nnoremap <C-l> :tabnext<CR>
-nnoremap <C-h> :tabprevious<CR>
-
-"nnoremap tj  :tabnext<CR>
-
-set mouse=a
-
-" move in long lines
-nnoremap k gk
-nnoremap j gj
-
-" vimslime
-"let g:slime_target = "tmux"
-"nmap <C-C><C-N> :set ft=haskell.script<CR><C-C><C-C>:set ft=haskell<CR>
-
-" pathogen
-execute pathogen#infect()
-
-" persistent undo
-if !isdirectory($HOME."/.dotfiles/vim/undodir")
-    call mkdir($HOME."/.dotfiles/vim/undodir", "p")
-endif
-
+set expandtab
+set smartindent
+set nu
+set nowrap
+set smartcase
+set noswapfile
+set nobackup
 set undodir=~/.vim/undodir
 set undofile
-set undolevels=1000 "maximum number of changes that can be undone
-set undoreload=10000 "maximum number lines to save for undo on a buffer reload
+set incsearch
+" Ignore case when searching...
+set ignorecase
+" ...except if we input a capital letter
+set smartcase
 
-" vp doesn't replace paste buffer
-function! RestoreRegister()
-  let @" = s:restore_reg
-  return ''
-endfunction
-function! s:Repl()
-  let s:restore_reg = @"
-  return "p@=RestoreRegister()\<cr>"
-endfunction
-vmap <silent> <expr> p <sid>Repl()
+" don't offer to open certain files/directories
+set wildignore+=*.bmp,*.gif,*.ico,*.jpg,*.png,*.ico
+set wildignore+=*.pdf,*.psd
+set wildignore+=node_modules/*,bower_components/*
+set wildignore+=**/__snapshots__/*
 
-" markdown also starts with .md
-autocmd BufNewFile,BufRead *.md set filetype=markdown
-
-" fzf command
-set rtp+=~/.fzf
-
-nnoremap <leader>t :call fzf#run({ 'sink': 'tabe', 'options': '-m +c', 'dir': '.', 'source': 'find .' })<CR>
-
-" ctags looks in the right directory
-set tags=./.tags,.tags;$HOME
-nnoremap <C-}G g<C-]>
-nnoremap <C-[> <C-t>
-
-
-" Run python when typing <leader>r
-noremap <buffer> <leader>r :w<cr> :exec '!python' shellescape(@%, 1)<cr>
-
-"ycm
-"let g:ycm_global_ycm_extra_conf = '~/.dotfiles/vim/bundle/YouCompleteMe/.ycm_extra_conf.py'
-"let g:ycm_confirm_extra_conf = 0 " Don't ask for confirmation about ycm_extra_conf
-"
-" From http://stackoverflow.com/questions/3105307/how-do-you-automatically-remove-the-preview-window-after-autocompletion-in-vim
-" If you prefer the Omni-Completion tip window to close when a selection is
-" made, these lines close it on movement in insert mode or when leaving
-" insert mode
-"autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
-autocmd InsertLeave * if pumvisible() == 0|pclose|endif
-
-" Red coloring at whitespace after end of line whitespace
-autocmd InsertEnter * syn clear EOLWS | syn match EOLWS excludenl /\s\+\%#\@!$/
-autocmd InsertLeave * syn clear EOLWS | syn match EOLWS excludenl /\s\+$/
-highlight EOLWS ctermbg=red guibg=red
-
-
-" #################
-" USER CONFIG
-" #################  
-let mapleader=","
-
-set t_Co=256
-syntax on
-set background=dark
-colorscheme distinguished
-
-" nerdcomment
-set timeout timeoutlen=1500
-
-" YouComplete
-let g:ycm_server_keep_logfiles = 1
-let g:ycm_server_log_level = 'debug' 
-"
-" insert new line without entering insert mode
-nmap <S-Enter> O<Esc>
-nmap <CR> o<Esc>
-
-" autoreload
-" set autoread
-
-" swp files
-set directory^=$HOME/.vim/.tmp//
-
-" autocomplete css 
-autocmd FileType css set omnifunc=csscomplete#CompleteCSS
-
-" ---------------------------------------------------------------------------
-"  borrowed from https://github.com/csswizardry/dotfiles/blob/master/.vimrc
-" ---------------------------------------------------------------------------
-
-" NERDTree
-" Run NERDTree as soon as we launch Vim...
-autocmd vimenter * NERDTree
-" ...but focus on the file itself, rather than NERDTree
-autocmd VimEnter * wincmd p
-" Close Vim if only NERDTree is left open
-"autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-
-
-" Visual decorations
-" Show status line
-set laststatus=2
-" Show what mode you’re currently in
-" set showmode
-" Show what commands you’re typing
-" set showcmd
-" Allow modelines
-" set modeline
 " Show current line and column position in file
 set ruler
 " Customise our current location information
 set statusline=%f\ %=Line\ %l/%L\ Col\ %c\ (%p%%)
+" Show status line
+set laststatus=2
 " Show file title in terminal tab
 set title
 " Show invisibles
@@ -210,75 +43,109 @@ set number
 set textwidth=80
 " However, in Git commit messages, let’s make it 72 characters
 autocmd FileType gitcommit set textwidth=72
-" Colour the column just after our line limit so that we don’t type over it
-set colorcolumn=+1
-" In Git commit messages, also colour the 51st column (for titles)
-autocmd FileType gitcommit set colorcolumn+=51
-" Highlight current line
-set cursorline
-
-" don't offer to open certain files/directories
-set wildignore+=*.bmp,*.gif,*.ico,*.jpg,*.png,*.ico
-set wildignore+=*.pdf,*.psd
-set wildignore+=node_modules/*,bower_components/*
-set wildignore+=**/__snapshots__/*
-
-" Search
-
-" Don’t keep results highlighted after searching...
-"set nohlsearch
-" ...just highlight as we type
-set incsearch
-" Ignore case when searching...
-set ignorecase
-" ...except if we input a capital letter
-set smartcase
-
-" filetype plugin on
-set omnifunc=syntaxcomplete#Complete
-
-call pathogen#helptags()
-
-autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS 
-
-let g:user_emmet_install_global = 0
-let g:user_emmet_leader_key='<Tab>'
-let g:user_emmet_settings = {
-     \  'javascript.jsx' : {
-     \    'extends' : 'jsx',
-     \    },
-     \  }
 
 
-"-- FOLDING --
-set foldmethod=syntax "syntax highlighting items specify folds
-set foldcolumn=1 "defines 1 col at window left, to indicate folding
-let javaScript_fold=1 "activate folding by JS syntax
-set foldlevelstart=99 "start file with all folds opened
+set colorcolumn=80
+highlight ColorColumn ctermbg=0 guibg=lightgrey
+
+call plug#begin('~/.vim/plugged')
+
+Plug 'morhetz/gruvbox'
+Plug 'tpope/vim-fugitive'
+Plug 'leafgarland/typescript-vim'
+Plug 'bruno-/vim-man'
+Plug 'valloric/youcompleteme'
+Plug 'scrooloose/nerdtree'
+Plug 'airblade/vim-gitgutter'
+Plug 'mbbill/undotree'
+Plug 'elmcast/elm-vim'
+Plug 'avh4/elm-format'
+Plug 'jremmen/vim-ripgrep'
+Plug 'preservim/nerdcommenter'
+Plug 'machakann/vim-highlightedyank'
+Plug 'edkolev/tmuxline.vim'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+
+call plug#end()
 
 
-" CTRLp
-" ==============================
-" Ignore some folders and files for CtrlP indexing
-"
-set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
-set wildignore+=*\\tmp\\*,*.swp,*.zip,*.exe  " Windows
+colorscheme gruvbox
+set background=dark
+set t_Co=256
 
-let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
-let g:ctrlp_custom_ignore = {
-                   \ 'dir':  '\v[\/]\.(git|hg|svn)\|node_modules$',
-                   \ 'file': '\v\.(exe|so|dll)$',
-                   \ 'link': 'some_bad_symbolic_links',
-                   \ }
+if executable('rg')
+    let g:rg_derive_root='true'
+endif
 
-"enable keyboard shortcuts
-let g:tern_map_keys=1
-"show argument hints
-let g:tern_show_argument_hints='on_hold'
-" path of current file
-set statusline+=%F
+let loaded_matchparen = 1
 
-" buffer jump
-map gn: bn<cr>
-map gp: bp<cr>
-map gd: bd<cr>
+let g:netrw_browse_split = 2
+let g:vrfr_rg = 'true'
+let g:netrw_banner = 0
+let g:netrw_winsize = 25
+
+" tmux
+let g:tmuxline_powerline_separators = 1
+let g:tmuxline_preset = 'full'
+let g:airline_powerline_fonts = 1
+
+" Add spaces after comment delimiters by default
+let g:NERDSpaceDelims = 1
+
+" Use compact syntax for prettified multi-line comments
+let g:NERDCompactSexyComs = 1
+
+" Align line-wise comment delimiters flush left instead of following code indentation
+let g:NERDDefaultAlign = 'left'
+
+" Set a language to use its alternate delimiters by default
+let g:NERDAltDelims_java = 1
+
+" Add your own custom formats or override the defaults
+let g:NERDCustomDelimiters = { 'c': { 'left': '/**','right': '*/' } }
+
+" Allow commenting and inverting empty lines (useful when commenting a region)
+let g:NERDCommentEmptyLines = 1
+
+" Enable trimming of trailing whitespace when uncommenting
+let g:NERDTrimTrailingWhitespace = 1
+
+" Enable NERDCommenterToggle to check all selected lines is commented or not
+let g:NERDToggleCheckAllLines = 1
+
+let mapleader = " "
+" =======================================
+noremap <Space> <Nop>
+
+nnoremap <S-Enter> O<Esc>
+nnoremap <CR> o<Esc>
+"auto indent for brackets
+inoremap {V5<CR> {<CR>}y7<Esc>O
+" easier write
+nnoremap <leader>w :w!<cr>
+" easier quit
+nnoremap <leader>q :q<cr>
+nnoremap <leader>h :wincmd h<CR>
+nnoremap <leader>j :wincmd j<CR>
+nnoremap <leader>k :wincmd k<CR>
+nnoremap <leader>l :wincmd l<CR>
+nnoremap <leader>u :UndotreeShow<CR>
+nnoremap <leader>pv :wincmd v<bar> :Ex <bar> :vertical resize 30<CR>
+nnoremap <Leader>ps :Rg<SPACE>
+nnoremap <C-p> :GFiles<CR>
+nnoremap <Leader>pf :Files<CR>
+nnoremap <Leader><CR> :so ~/.config/nvim/init.vim<CR>
+nnoremap <Leader>+ :vertical resize +5<CR>
+nnoremap <Leader>- :vertical resize -5<CR>
+nnoremap <Leader>ee oif err != nil {<CR>log.Fatalf("%+v\n", err)<CR>}<CR><esc>kkI<esc>
+vnoremap J :m '>+1<CR>gv=gv
+vnoremap K :m '<-2<CR>gv=gv
+nnoremap <leader>vwm :colorscheme gruvbox<bar>:set background=dark<CR>
+vnoremap X "_d
+inoremap <C-c> <esc>
+
+function! s:check_back_space() abort
+    let col = col('.') - 1
+    return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
