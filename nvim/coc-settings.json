@@ -1,0 +1,17 @@
+{
+  "coc.preferences.formatOnSaveFiletypes": ["*"],
+  "languageserver": {
+    "elmLS": {
+      "command": "elm-language-server",
+      "filetypes": ["elm"],
+      "rootPatterns": ["elm.json"],
+      "initializationOptions": {
+        "elmAnalyseTrigger": "change"
+      }
+    }
+  },
+  "snippets.ultisnips.directories": ["UltiSnips", "~/.config/nvim/utils/snips"],
+  "yank.highlight.duration": 300,
+  "pairs.enableCharacters": ["(", "[", "{", "'", "\"", "`"],
+  "codeLens.enable": true
+}
