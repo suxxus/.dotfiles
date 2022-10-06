@@ -94,11 +94,20 @@ Plug 'elmcast/elm-vim'
 
 call plug#end()
 " -----------------------------------
-
+" let g:gruvbox_material_background = 'hard'
+" let g:gruvbox_material_better_performance = 1
+" let g:gruvbox_material_foreground = 'original'
+" let g:gruvbox_material_transparent_background = 0
+" let g:gruvbox_material_ui_contrast = 'high'
+" let g:gruvbox_material_disable_terminal_colors = 1
+" let g:gruvbox_italic = 0
+let g:gruvbox_material_disable_italic_comment = 1
 colorscheme gruvbox-material
-" colorscheme dracula
-" highlight Normal guibg=none
 
+hi Normal guibg=NONE ctermbg=NONE
+hi EndOfBuffer guibg=NONE ctermbg=NONE
+
+" -----------------------------------
 " remap
 let mapleader = " "
 nnoremap <leader>ps <cmd>lua require('telescope.builtin').grep_string({search = vim.fn.input("Grep for > ")})<cr>
