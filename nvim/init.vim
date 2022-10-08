@@ -101,8 +101,12 @@ call plug#end()
 " let g:gruvbox_material_ui_contrast = 'high'
 " let g:gruvbox_material_disable_terminal_colors = 1
 " let g:gruvbox_italic = 0
-let g:gruvbox_material_disable_italic_comment = 1
+let g:gruvbox_material_disable_italic_comment = 0
+
 colorscheme gruvbox-material
+
+hi clear Comment
+hi Comment term=bold cterm=NONE ctermfg=245 gui=NONE guifg=#928374
 
 hi Normal guibg=NONE ctermbg=NONE
 hi EndOfBuffer guibg=NONE ctermbg=NONE
