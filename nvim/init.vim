@@ -82,6 +82,8 @@ Plug 'preservim/nerdcommenter'
 Plug 'airblade/vim-gitgutter'
 
 " development
+Plug 'MunifTanjim/nui.nvim'
+Plug 'google/executor.nvim'
 Plug 'Pocco81/AutoSave.nvim'
 Plug 'dense-analysis/ale' 
 Plug 'mxw/vim-jsx'
@@ -91,6 +93,7 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'ekalinin/Dockerfile.vim'
 Plug 'tarekbecker/vim-yaml-formatter'
 Plug 'elmcast/elm-vim'
+Plug 'github/copilot.vim'
 
 call plug#end()
 " -----------------------------------
