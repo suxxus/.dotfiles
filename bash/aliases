@@ -183,6 +183,12 @@ command -v npm > /dev/null && alias npme="npm --registry http://registry.npmjs.e
 # exit
 alias  x="exit"
 
+# test typescript repl
+alias tsnode='npx ts-node'
+
+# visual studio code
+alias Visual=$HOME/Documents/App/visualCode/data/usr/share/code/./code
+
 #only one screen when using laptop
 # alias onescreen="xrandr --output eDP-1 --off"
 
