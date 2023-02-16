@@ -68,6 +68,7 @@ Plug 'rktjmp/lush.nvim'
 Plug 'ellisonleao/gruvbox.nvim'
 Plug 'wittyjudge/gruvbox-material.nvim'
 Plug 'dracula/vim', { 'as': 'dracula' }
+Plug 'noib3/nvim-cokeline'
 
 " Telescome
 Plug 'nvim-lua/plenary.nvim'
@@ -75,15 +76,18 @@ Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.0' }
 Plug 'nvim-telescope/telescope-fzy-native.nvim'
+Plug 'nvim-tree/nvim-web-devicons'
+Plug 'nvim-tree/nvim-tree.lua'
 
 " helpers
 Plug 'machakann/vim-highlightedyank'
 Plug 'preservim/nerdcommenter'
 Plug 'airblade/vim-gitgutter'
+Plug 'Yggdroot/indentLine'
 
 " development
+Plug 'windwp/nvim-ts-autotag'
 Plug 'MunifTanjim/nui.nvim'
-Plug 'google/executor.nvim'
 Plug 'Pocco81/AutoSave.nvim'
 Plug 'dense-analysis/ale' 
 Plug 'mxw/vim-jsx'
@@ -93,9 +97,38 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'ekalinin/Dockerfile.vim'
 Plug 'tarekbecker/vim-yaml-formatter'
 Plug 'elmcast/elm-vim'
-Plug 'github/copilot.vim'
-
+Plug 'ap/vim-css-color'
+Plug 'mattn/emmet-vim'
+" Plug 'github/copilot.vim'
 call plug#end()
+
+lua <<EOF
+ -- nvim-tree
+ -- disable netrw at the very start of your init.lua (strongly advised)
+ vim.g.loaded_netrw = 1
+ vim.g.loaded_netrwPlugin = 1
+ -- set termguicolors to enable highlight groups
+ vim.opt.termguicolors = true
+ -- empty setup using defaults
+  require('nvim-tree').setup()
+
+ -- auto-tag
+ require'nvim-treesitter.configs'.setup {
+  autotag = {
+    enable = true,
+  }
+ }
+
+EOF
+
+" -- blankline
+" require('indent_blankline').setup {
+"     -- for example, context is off by default, use this to turn it on
+"     show_current_context = true,
+"     show_current_context_start = true,
+" }
+
+
 " -----------------------------------
 " let g:gruvbox_material_background = 'hard'
 " let g:gruvbox_material_better_performance = 1
@@ -104,6 +137,7 @@ call plug#end()
 " let g:gruvbox_material_ui_contrast = 'high'
 " let g:gruvbox_material_disable_terminal_colors = 1
 " let g:gruvbox_italic = 0
+
 let g:gruvbox_material_disable_italic_comment = 0
 
 colorscheme gruvbox-material
@@ -149,6 +183,14 @@ let g:LanguageClient_rootMarkers = {
   \ 'elm': ['elm.json'],
   \ }
 
+ 
+let g:ale_sign_error = '❌'
+let g:ale_sign_warning = '⚠️'
+
+" emmet config 
+let g:user_emmet_leader_key=','
+
+
 " config airline
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
@@ -184,3 +226,4 @@ let g:NERDTrimTrailingWhitespace = 1
 
 " Enable NERDCommenterToggle to check all selected lines is commented or not 
 let g:NERDToggleCheckAllLines = 1
+
