@@ -16,7 +16,7 @@ alias count='wc -l'                             # count lines
 alias size='du -sh'                             # get folder size
 alias sizer='du -h -c'                          # get and print folder size for all folders, recursively
 alias disks='df -H -l'                          # show available disk space
-alias ip='ifconfig | grep "inet "'              # quickly print ip address
+alias ip='ip -a | grep "inet "'              # quickly print ip address
 alias ping='ping -c 5'                          # pings with 5 packets, not unlimited
 
 # text formatting
@@ -37,8 +37,6 @@ alias encode='python -c "import sys, urllib as ul; print ul.quote_plus(sys.argv[
 alias decode='python -c "import sys, urllib as ul; print ul.unquote_plus(sys.argv[1])"'
 alias sniff="sudo ngrep -d 'en0' -t '^(GET|POST) ' 'tcp and port 80'"
 alias httpdump="sudo tcpdump -i en0 -n -s 0 -w - | grep -a -o -E \"Host\: .*|GET \/.*\""
-alias whois="whois -h whois-servers.net"
-alias ips="ifconfig | grep 'inet ' | cut -d ' ' -f 2"
 alias eip="dig +short myip.opendns.com @resolver1.opendns.com"
 
 # git
@@ -77,7 +75,6 @@ alias check='npm outdated --depth=0'
 alias update='npm run update'
 alias lint='npm run lint'
 alias story='npm run storybook'
-alias brs='npm run browsersync'
 alias npmlg='npm list -g --depth=0'
 alias npml='npm list --depth=0'
 
@@ -103,7 +100,6 @@ alias randb64n='openssl rand -base64 '
 alias line='printf "%100s\n" | tr " " ='
 alias unique='uniq'
 alias kdiff='ksdiff'
-alias checksum='md5'
 alias cleantest='rm -rf /tmp/test-mxj'
 alias timer='echo "Timer started. Stop with Ctrl-D." && date && time cat && date'
 alias sum="xargs | tr ' ' '+' | bc"
@@ -114,8 +110,6 @@ alias elasticstart='elasticsearch -f -D es.config=/usr/local/opt/elasticsearch/c
 alias elasticstop='curl -XPOST http://localhost:9200/_shutdown'
 alias zincstart='zinc -nailed -port 3030 -start'
 
-# JVM/sbt/maven
-alias cleantarget="find . -type d -name target -ls -exec rm -r {} +"
 
 # Easier navigation: .., ..., ...., ....., ~ and -
 alias ..="cd .."
@@ -127,13 +121,16 @@ alias -- -="cd -"
 
 # Shortcuts
 alias d="cd ~/Documents"
-alias ds="cd ~/Documents/studies && la -s"
-alias dw="cd ~/Documents/works && la -s"
 alias dl="cd ~/Downloads"
 alias dt="cd ~/Desktop"
 alias g="git"
 alias h="history"
+#Firefox develop edition
 alias ffd="$HOME/Documents/firefox/./firefox"
+# visual studio code
+alias Visual="$HOME/Documents/App/visualCode/data/usr/share/code/./code"
+# run Motion - video 
+alias Motion="$HOME/Documents/App/MotionBox-1.8.0-0-linux64/MotionBox-1.8.0-0/usr/bin/./MotionBox"
 
 # Detect which `ls` flavor is in use
 if ls --color > /dev/null 2>&1; then # GNU `ls`
@@ -183,25 +180,9 @@ command -v npm > /dev/null && alias npme="npm --registry http://registry.npmjs.e
 # exit
 alias  x="exit"
 
-# test typescript repl
-alias tsnode='npx ts-node'
+# alias Motion="$HOME/Documents/App/MotionBox-1.8.0-0-linux64/MotionBox-1.8.0-0/usr/bin/./MotionBox"
+# tmuxp SESSIONS
+alias tmG="tmuxp load $HOME/.tmuxp/GENERAL.yaml"
+alias tmDocker="tmuxp load $HOME/.tmuxp/DOCKER.yaml"
+alias tmDev="tmuxp load $HOME/.tmuxp/DEVELOP.yaml"
 
-# visual studio code
-alias Visual=$HOME/Documents/App/visualCode/data/usr/share/code/./code
-
-#only one screen when using laptop
-# alias onescreen="xrandr --output eDP-1 --off"
-
-#block screen
-# alias block="sudo -v;gnome-screensaver-command --lock;sleep 1;sudo pm-suspend"
-
-#change screen resolution
-# alias screenr0="xrandr -s 1920x1080"
-# alias screenr1="xrandr -s 1280x1024"
-# alias screenr2="xrandr -s 1360x768"
-# alias screenr3="xrandr -s 1024x768"
-
-#enable disable touchpad
-# alias enable-touchpad='xinput set-prop `xinput list | grep -i touchpad | cut -f2 | grep -oE '[[:digit:]]+'` "Device Enabled" 1'
-
-# alias disable-touchpad='xinput set-prop `xinput list | grep -i touchpad | cut -f2 | grep -oE '[[:digit:]]+'` "Device Enabled" 0'
