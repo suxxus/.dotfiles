@@ -88,7 +88,6 @@ Plug 'Yggdroot/indentLine'
 " development
 Plug 'windwp/nvim-ts-autotag'
 Plug 'MunifTanjim/nui.nvim'
-Plug 'Pocco81/AutoSave.nvim'
 Plug 'dense-analysis/ale' 
 Plug 'mxw/vim-jsx'
 Plug 'pangloss/vim-javascript'
@@ -167,9 +166,11 @@ nnoremap <leader>l :wincmd l<CR>
 " resize window
 nnoremap <Leader>+ :vertical resize +5<CR>
 nnoremap <Leader>- :vertical resize -5<CR>
+
 "( This way you can insert a line under your cursor with <Leader>o and one on the previous line with <Leader>O.0
 nnoremap <Leader>o o<Esc>
 nnoremap <Leader>O O<Esc>
+
 
 " development
 let g:ale_linters = {'javascript': ['eslint']}
