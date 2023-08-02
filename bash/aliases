@@ -73,6 +73,7 @@ alias build='npm run build'
 alias dist='npm run dist'
 alias check='npm outdated --depth=0'
 alias update='npm run update'
+alias testW='npm run test:watch'
 alias lint='npm run lint'
 alias story='npm run storybook'
 alias npmlg='npm list -g --depth=0'
@@ -130,7 +131,8 @@ alias ffd="$HOME/Documents/firefox/./firefox"
 # visual studio code
 alias Visual="$HOME/Documents/App/visualCode/data/usr/share/code/./code"
 # run Motion - video 
-alias Motion="$HOME/Documents/App/MotionBox-1.8.0-0-linux64/MotionBox-1.8.0-0/usr/bin/./MotionBox"
+alias Motion="$HOME/Documents/App/MotionBox-1.8.0-0-linux64/MotionBox/usr/bin/./MotionBox"
+
 
 # Detect which `ls` flavor is in use
 if ls --color > /dev/null 2>&1; then # GNU `ls`
