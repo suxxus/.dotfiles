@@ -1,0 +1,21 @@
+session_name: GENERAL
+windows:
+- layout: bb5d,238x62,0,0,0
+  options:
+    automatic-rename: 'off'
+  panes:
+  - focus: 'true'
+    shell_command: btop
+  start_directory: /home/d
+  window_name: Btop
+- focus: 'true'
+  layout: 1b9b,238x62,0,0[238x31,0,0,1,238x30,0,32{119x30,0,32,2,118x30,120,32,3}]
+  options:
+    automatic-rename: 'off'
+  panes:
+  - zsh
+  - zsh
+  - focus: 'true'
+    shell_command: ls -a
+  start_directory: /home/d
+  window_name: Main

@@ -1,0 +1,19 @@
+session_name: DOCKER
+windows:
+- layout: bb5f,238x62,0,0,2
+  options:
+    automatic-rename: 'off'
+  panes:
+  - focus: 'true'
+    shell_command: docker images
+  start_directory: /home/d
+  window_name: Images
+- focus: 'true'
+  layout: bb60,238x62,0,0,3
+  options:
+    automatic-rename: 'off'
+  panes:
+  - focus: 'true'
+    shell_command: docker ps
+  start_directory: /home/d
+  window_name: Containers

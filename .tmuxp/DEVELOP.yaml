@@ -1,0 +1,27 @@
+session_name: DEVELOP
+windows:
+  - layout: bb61,238x62,0,0,4
+    options:
+      automatic-rename: "off"
+    panes:
+      - focus: "true"
+        shell_command: ls -a
+    start_directory: /home/d/.studies
+    window_name: Main
+  - layout: bb62,238x62,0,0,5
+    options:
+      automatic-rename: "off"
+    panes:
+      - focus: "false"
+        shell_command: zsh
+    start_directory: /home/d/.studies
+    window_name: Tig
+  - focus: "true"
+    layout: bb63,238x62,0,0,6
+    options:
+      automatic-rename: "off"
+    panes:
+      - focus: "false"
+        shell_command: zsh
+    start_directory: /home/d/.studies
+    window_name: Run
