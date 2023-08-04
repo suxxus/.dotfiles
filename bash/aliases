@@ -133,6 +133,7 @@ alias Visual="$HOME/Documents/App/visualCode/data/usr/share/code/./code"
 # run Motion - video 
 alias Motion="$HOME/Documents/App/MotionBox-1.8.0-0-linux64/MotionBox/usr/bin/./MotionBox"
 
+alias fd="$HOME/fdfind"
 
 # Detect which `ls` flavor is in use
 if ls --color > /dev/null 2>&1; then # GNU `ls`
